@@ -126,7 +126,7 @@ runs:
       run: |
         echo "DOCKER_METADATA_OUTPUT_JSON=$DOCKER_METADATA_OUTPUT_JSON"
         docker buildx imagetools create $(jq -cr '.tags | map("-t " + .) | join(" ")' <<< "$DOCKER_METADATA_OUTPUT_JSON") \
-          $(printf '$REGISTRY/$REPOSITORY@sha256:%s ' *)
+          $(printf ''$REGISTRY'/'$REPOSITORY'@sha256:%s ' *)
       shell: bash
 
     - name: Inspect image
