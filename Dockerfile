@@ -30,6 +30,9 @@ ENV UV_PYTHON_PREFERENCE=only-system
 # Run without updating the uv.lock file like running with `--frozen`
 ENV UV_FROZEN=true
 
+# Install build dependencies for packages that need compilation (like cffi)
+RUN apk add --no-cache gcc musl-dev libffi-dev
+
 # Copy the required files first
 COPY pyproject.toml uv.lock ./
 
