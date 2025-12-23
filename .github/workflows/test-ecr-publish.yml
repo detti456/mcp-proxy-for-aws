@@ -67,9 +67,8 @@ jobs:
           context: .
           file: ./Dockerfile
           push: false
-          load: false
           tags: mcp-proxy-for-aws:${{ steps.get-package-version.outputs.version }}
-          outputs: type=docker,dest=/tmp/mcp-proxy-for-aws-${{ steps.get-package-version.outputs.version }}.tar
+          outputs: type=oci,dest=/tmp/mcp-proxy-for-aws-${{ steps.get-package-version.outputs.version }}.tar
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
