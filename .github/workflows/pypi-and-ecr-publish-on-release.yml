@@ -171,4 +171,3 @@ jobs:
           public-ecr-role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
           public-ecr-registry-alias: awslabs-mcp
           public-ecr-aws-region: us-east-1
-          sbom-file: ./sbom/sbom.cyclonedx.json

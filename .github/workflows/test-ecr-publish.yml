@@ -120,4 +120,3 @@ jobs:
           ecr-role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
           ecr-repository: mcp-proxy-for-aws-test
           ecr-aws-region: eu-north-1
-          sbom-file: ./sbom/sbom.cyclonedx.json

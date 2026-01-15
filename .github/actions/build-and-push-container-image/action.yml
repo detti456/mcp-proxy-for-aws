@@ -27,11 +27,6 @@ inputs:
     description: 'The region to login'
     type: string
     required: false
-  sbom-file:
-    description: 'Path to SBOM file to attach as attestation'
-    type: string
-    required: false
-    default: ''
 
 runs:
   using: "composite"
@@ -102,7 +97,7 @@ runs:
         outputs: type=image,push-by-digest=true,name-canonical=true,push=true
         cache-from: type=gha
         cache-to: type=gha,mode=max
-        sbom: ${{ inputs.sbom-file || 'false' }}
+        sbom: true
 
     - name: Export digest
       run: |
