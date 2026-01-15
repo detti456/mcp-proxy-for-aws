@@ -1,8 +1,8 @@
 ---
-# This local action builds and pushes a multi-platform image to private ECR for testing
+# This local action builds an image and pushes it to private ECR for testing
 name: "Build and push image (Test)"
 author: "MCP Proxy for AWS"
-description: "Builds a multi-platform image and pushes it to private ECR for testing"
+description: "Builds an image and pushes it to private ECR for testing"
 
 inputs:
   image:
@@ -13,7 +13,7 @@ inputs:
     default: ''
     description: 'The version to associate to the image'
     type: string
-    required: true
+    required: false
   ecr-role-to-assume:
     description: 'The ECR role to use to push the image'
     type: string
