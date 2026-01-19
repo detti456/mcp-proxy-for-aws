@@ -89,9 +89,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: sbom-${{ steps.get-package-version.outputs.version }}
-          path: |
-            SBOM-${{ steps.get-package-version.outputs.version }}.csv
-            sbom.cyclonedx.json
+          path: SBOM-${{ steps.get-package-version.outputs.version }}.csv
           retention-days: 90
 
   test-container-build:
@@ -105,12 +103,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           persist-credentials: false
-
-      - name: Download SBOM artifact
-        uses: actions/download-artifact@v5
-        with:
-          name: sbom-${{ needs.build.outputs.version }}
-          path: ./sbom
 
       - name: Build and push to Private ECR
         uses: ./.github/actions/build-and-push-container-image-test

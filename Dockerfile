@@ -89,9 +89,6 @@ COPY --from=uv --chown=app:app /app/.venv /app/.venv
 # Get healthcheck script
 COPY ./docker-healthcheck.sh /usr/local/bin/docker-healthcheck.sh
 
-# Copy SBOM directory (will contain files during ECR build, empty otherwise)
-COPY --chown=app:app ./sbom /app/sbom
-
 # Run as non-root
 USER app
 
